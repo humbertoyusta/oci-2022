@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<problem revision="5" short-name="jumpk" url="https://polygon.codeforces.com/p3gnQk7/humbertoyusta/jumpk">
+    <judging cpu-name="Intel(R) Core(TM) i3-8100 CPU @ 3.60GHz" cpu-speed="3600" input-file="" output-file="" run-count="1">
+        <testset name="tests">
+            <time-limit>1000</time-limit>
+            <memory-limit>268435456</memory-limit>
+            <test-count>31</test-count>
+            <input-path-pattern>tests/%02d</input-path-pattern>
+            <answer-path-pattern>tests/%02d.a</answer-path-pattern>
+            <tests>
+                <test method="manual" sample="true"/>
+                <test cmd="gen random 200000 1 1 1 1 200000 s1" method="generated"/>
+                <test cmd="gen worst 200000 1 1 1 1 200000 s1" method="generated"/>
+                <test cmd="gen random 200000 7 1 2 2 200000 s2" method="generated"/>
+                <test cmd="gen random 200000 30000 1 311 311 200000 s2" method="generated"/>
+                <test cmd="gen random 200000 40000 1 18 18 200000 s2" method="generated"/>
+                <test cmd="gen worst 200000 1 1 2 2 200000 s2" method="generated"/>
+                <test cmd="gen random 200000 279 1 311 311 200000 s2" method="generated"/>
+                <test cmd="gen random 2 200000 1 199999 199999 10 s3" method="generated"/>
+                <test cmd="gen random 1000 300 1 50 100 1000 s3" method="generated"/>
+                <test cmd="gen worst 1000 1 1 1 1 1000 s3" method="generated"/>
+                <test cmd="gen random 100000 2 1 1 2 10 s3" method="generated"/>
+                <test cmd="gen random 1000 58 100 30 60 1000 s3" method="generated"/>
+                <test cmd="gen random 1000 100 1 60 105 1000 s3" method="generated"/>
+                <test cmd="gen random 10000 20 1 1 20 100 s3" method="generated"/>
+                <test cmd="gen random 10000 20 1 1 21 100 s3" method="generated"/>
+                <test cmd="gen random 100 1000 1 500 1000 10000 s3" method="generated"/>
+                <test cmd="gen random 10 20000 1 10000 20000 100000 s3" method="generated"/>
+                <test cmd="gen random 200000 10000 1 1 5 10000 s4" method="generated"/>
+                <test cmd="gen random 200000 10000 1 1 100 10000 s4" method="generated"/>
+                <test cmd="gen random 200000 10000 1 5000 10100 10000 s4" method="generated"/>
+                <test cmd="gen random 200000 20000 1 100 2000 10000 s4" method="generated"/>
+                <test cmd="gen random 200000 50000 1 20000 80000 10000 s4" method="generated"/>
+                <test cmd="gen random 200000 100 1 1 105 200000 s5" method="generated"/>
+                <test cmd="gen worst 200000 1 1 1 1 200000 s5" method="generated"/>
+                <test cmd="gen worst 200000 2 1 1 2 200000 s5" method="generated"/>
+                <test cmd="gen worst 200000 3 1 2 3 200000 s5" method="generated"/>
+                <test cmd="gen random 200000 100 50 50 101 200000 s5" method="generated"/>
+                <test cmd="gen random 200000 10000 1 5000 10100 200000 s5" method="generated"/>
+                <test cmd="gen random 200000 59 1 30 60 200000 s5" method="generated"/>
+                <test cmd="gen random 200000 100 1 1 100 200000 s5" method="generated"/>
+            </tests>
+        </testset>
+    </judging>
+    <files>
+        <resources>
+            <file path="files/olymp.sty"/>
+            <file path="files/problem.tex"/>
+            <file path="files/statements.ftl"/>
+            <file path="files/testlib.h" type="h.g++"/>
+        </resources>
+        <executables>
+            <executable>
+                <source path="files/gen.cpp" type="cpp.g++17"/>
+            </executable>
+            <executable>
+                <source path="files/validator.cpp" type="cpp.g++17"/>
+            </executable>
+        </executables>
+    </files>
+    <assets>
+        <checker name="std::ncmp.cpp" type="testlib">
+            <source path="files/check.cpp" type="cpp.g++17"/>
+            <copy path="check.cpp"/>
+            <testset>
+                <test-count>0</test-count>
+                <input-path-pattern>files/tests/checker-tests/%02d</input-path-pattern>
+                <output-path-pattern>files/tests/checker-tests/%02d.o</output-path-pattern>
+                <answer-path-pattern>files/tests/checker-tests/%02d.a</answer-path-pattern>
+                <tests/>
+            </testset>
+        </checker>
+        <validators>
+            <validator>
+                <source path="files/validator.cpp" type="cpp.g++17"/>
+                <testset>
+                    <test-count>1</test-count>
+                    <input-path-pattern>files/tests/validator-tests/%02d</input-path-pattern>
+                    <tests>
+                        <test verdict="valid"/>
+                    </tests>
+                </testset>
+            </validator>
+        </validators>
+        <solutions>
+            <solution tag="time-limit-exceeded">
+                <source path="solutions/brute.cpp" type="cpp.g++17"/>
+            </solution>
+            <solution tag="main">
+                <source path="solutions/solution.cpp" type="cpp.g++17"/>
+            </solution>
+        </solutions>
+    </assets>
+    <properties>
+        <property name="tests-wellformed" value="true"/>
+    </properties>
+    <stresses>
+        <stress-count>0</stress-count>
+        <stress-path-pattern>stresses/%03d</stress-path-pattern>
+        <list/>
+    </stresses>
+    <tags>
+        <tag value="binary lifting"/>
+        <tag value="greedy"/>
+    </tags>
+</problem>

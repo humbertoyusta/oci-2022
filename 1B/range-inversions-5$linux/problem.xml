@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<problem revision="5" short-name="range-inversions" url="https://polygon.codeforces.com/p6O7AHt/humbertoyusta/range-inversions">
+    <judging cpu-name="Intel(R) Core(TM) i3-8100 CPU @ 3.60GHz" cpu-speed="3600" input-file="" output-file="" run-count="1">
+        <testset name="tests">
+            <time-limit>2000</time-limit>
+            <memory-limit>268435456</memory-limit>
+            <test-count>20</test-count>
+            <input-path-pattern>tests/%02d</input-path-pattern>
+            <answer-path-pattern>tests/%02d.a</answer-path-pattern>
+            <tests>
+                <test method="manual" sample="true"/>
+                <test cmd="gen 300 random 0 a_equal_b_and_c_equal_d 300 s1" method="generated"/>
+                <test cmd="gen 300 almost-increasing 5 a_equal_b_and_c_equal_d 300 s1" method="generated"/>
+                <test cmd="gen 3000 decreasing 0 random 6000 s2" method="generated"/>
+                <test cmd="gen 3000 decreasing 0 worst 6000 s2" method="generated"/>
+                <test cmd="gen 300 random 0 random 300 s3" method="generated"/>
+                <test cmd="gen 300 almost-increasing 50 random 300 s3" method="generated"/>
+                <test cmd="gen 300 almost-decreasing 3 worst 300 s3" method="generated"/>
+                <test cmd="gen 6000 random 0 random 6000 s4" method="generated"/>
+                <test cmd="gen 6000 random 0 worst 6000 s4" method="generated"/>
+                <test cmd="gen 6000 almost-increasing 50 random 6000 s4" method="generated"/>
+                <test cmd="gen 6000 almost-decreasing 3 random 6000 s4" method="generated"/>
+                <test cmd="gen 3000 random 0 random 500000 s5" method="generated"/>
+                <test cmd="gen 3000 random 0 worst 500000 s5" method="generated"/>
+                <test cmd="gen 3000 almost-increasing 100 random 500000 s5" method="generated"/>
+                <test cmd="gen 3000 almost-decreasing 3 random 500000 s5" method="generated"/>
+                <test cmd="gen 6000 random 0 random 500000 s6" method="generated"/>
+                <test cmd="gen 6000 random 0 worst 500000 s6" method="generated"/>
+                <test cmd="gen 6000 almost-increasing 100 random 500000 s6" method="generated"/>
+                <test cmd="gen 6000 almost-decreasing 3 random 500000 s6" method="generated"/>
+            </tests>
+        </testset>
+    </judging>
+    <files>
+        <resources>
+            <file path="files/olymp.sty"/>
+            <file path="files/problem.tex"/>
+            <file path="files/statements.ftl"/>
+            <file path="files/testlib.h" type="h.g++"/>
+        </resources>
+        <executables>
+            <executable>
+                <source path="files/gen.cpp" type="cpp.g++17"/>
+            </executable>
+            <executable>
+                <source path="files/validator.cpp" type="cpp.g++17"/>
+            </executable>
+        </executables>
+    </files>
+    <assets>
+        <checker name="std::ncmp.cpp" type="testlib">
+            <source path="files/check.cpp" type="cpp.g++17"/>
+            <copy path="check.cpp"/>
+            <testset>
+                <test-count>0</test-count>
+                <input-path-pattern>files/tests/checker-tests/%02d</input-path-pattern>
+                <output-path-pattern>files/tests/checker-tests/%02d.o</output-path-pattern>
+                <answer-path-pattern>files/tests/checker-tests/%02d.a</answer-path-pattern>
+                <tests/>
+            </testset>
+        </checker>
+        <validators>
+            <validator>
+                <source path="files/validator.cpp" type="cpp.g++17"/>
+                <testset>
+                    <test-count>2</test-count>
+                    <input-path-pattern>files/tests/validator-tests/%02d</input-path-pattern>
+                    <tests>
+                        <test verdict="valid"/>
+                        <test verdict="invalid"/>
+                    </tests>
+                </testset>
+            </validator>
+        </validators>
+        <solutions>
+            <solution tag="time-limit-exceeded-or-memory-limit-exceeded">
+                <source path="solutions/anier.cpp" type="cpp.g++17"/>
+            </solution>
+            <solution tag="time-limit-exceeded">
+                <source path="solutions/slow.cpp" type="cpp.g++17"/>
+            </solution>
+            <solution tag="main">
+                <source path="solutions/solution.cpp" type="cpp.g++17"/>
+            </solution>
+            <solution tag="time-limit-exceeded">
+                <source path="solutions/subtask.cpp" type="cpp.g++17"/>
+            </solution>
+            <solution tag="time-limit-exceeded-or-memory-limit-exceeded">
+                <source path="solutions/sweep_st.cpp" type="cpp.g++17"/>
+            </solution>
+        </solutions>
+    </assets>
+    <properties>
+        <property name="tests-wellformed" value="true"/>
+    </properties>
+    <stresses>
+        <stress-count>0</stress-count>
+        <stress-path-pattern>stresses/%03d</stress-path-pattern>
+        <list/>
+    </stresses>
+    <tags>
+        <tag value="data structures"/>
+    </tags>
+</problem>
