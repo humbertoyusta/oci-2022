@@ -20,6 +20,5 @@ input validators, some complete official solutions, and others from some subtask
 
 The packages were generated using [polygon](https://polygon.codeforces.com).
 
-The intellectual author of problem 2A is Brayan Durán Medina, and that of problems 1B and 1C
-Humberto Yusta Gómez, the problems were prepared by Humberto Yusta Gómez, with collaboration
+The intellectual author of problem 2A is Brayan Durán Medina, and the intellectual author of problems 1B and 1C is Humberto Yusta Gómez, the problems were prepared by Humberto Yusta Gómez, with collaboration
 of Anier Velasco Sotomayor as a tester and writing editorials.
